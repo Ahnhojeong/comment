@@ -92,6 +92,13 @@ window.addEventListener('DOMContentLoaded', function () {
     let idCountList = [];
 
     function writeComment(comments) {
+        // 금지어
+        let badWords = ['비속어','나쁜말','바보'];
+        if( badWords.includes(comments) ){
+            filter(comments);
+        }else if( preMsg.includes(comments) ){
+            plaster(comments);
+        }else{
         // 댓글 등록할 때마다 html 추가
         const commentLi = document.createElement('li'); // comments_content
         const commentDiv = document.createElement('div'); //comments_contnet_box
@@ -215,9 +222,8 @@ window.addEventListener('DOMContentLoaded', function () {
         voteA2.addEventListener('click',function(){
             this.lastChild.innerHTML++;
         });
-
-        // 댓글 비속어 금지
-        filter(comments);
+        }
+        
     }
 
 
@@ -230,6 +236,7 @@ window.addEventListener('DOMContentLoaded', function () {
         if( !writeVal.length ){
             alert("댓글을 입력해주세요");
         }else{
+            //댓글 작성
             writeComment(writeVal);
             writeTextarea.value = '';
             topCommentCount.innerHTML++;
@@ -265,6 +272,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // 금지어
     function filter(comments){
         let badWords = ['비속어','나쁜말','바보'];
+        console.log( badWords.includes(comments) );
         for(var i=0; i<badWords.length; i++){
             if( comments.indexOf(badWords[i]) != -1 ){
                 alert('비속어를 사용하지 말아주세요.');
@@ -274,8 +282,10 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     // 도배방지
-    let preMsg = 0;
+    let preMsg = [];
     function plaster(curMsg){
+        console.log( preMsg.includes(curMsg) );
+        console.log(preMsg)
         if(preMsg == curMsg){
             alert('동일한 내용의 댓글 도배를 멈춰주세요.')
             return;
@@ -314,9 +324,13 @@ window.addEventListener('DOMContentLoaded', function () {
             for(var i=0; i<idCountList.length; i++){
                 if( idCountList[i]["commentId"].toString() == modify.parentNode.parentNode.parentNode.firstChild.id ){
                     idCountList[i]["commentValue"] = modifyText.value;
-
+                    let badWords = ['비속어','나쁜말','바보'];
+                    if( badWords.includes(modifyText.value) ){
+                        filter(modifyText.value);
+                    }else{
                     modify.parentNode.parentNode.parentNode.parentNode.children[1].firstChild.innerHTML = modifyText.value;
                     modifyModal.classList.remove('open');
+                    }
                 }
             }
         })
