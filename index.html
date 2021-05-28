@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comment</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/25f22587a3.js" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <div class="comments_wrap">
+        <div class="comments">
+            <div class="comment_head">
+                <h4 class="comment_title">댓글 쓰기</h4>
+                <span class="comment_count">2</span>
+            </div> <!-- // comment_head -->
+            <div class="comment_write_box">
+                <div class="write_box_inner">
+                    <div class="wbox_profile">
+                        <span class="wbox_profile_name">로그인을 해주세요.</span>
+                    </div> <!-- // wbox_profile -->
+                    <div class="wbox_write">
+                        <textarea class="wbox_text" rows="3" cols="30" placeholder="로그인 후 댓글을 작성할 수 있습니다."></textarea>
+                    </div> <!-- // wbox_write -->
+                    <div class="wbox_submit">
+                        <button class="wbox_submit_btn">
+                            <span class="wbox_submit_txt">등록</span>
+                        </button>
+                    </div> <!-- // wbox_submit -->
+                </div> <!-- // write_box_inner -->
+            </div> <!-- // comment_write_box -->
+
+            <div class="comments_contennt_wrap">
+                <ul class="comments_content_list">
+                    <li class="comments_content">
+                        <div class="comments_contnet_box">
+                            <div class="con_user">
+                                <span class="con_user_id">kore****</span>
+                            </div>
+                            <div class="con_user_txt">
+                                <span class="con_user_textarea">sample1</span>
+                            </div>
+                            <div class="con_user_info">
+                                <div class="con_write_date">
+                                    <span class="con_write_now_date">2021-05-26 23:00</span>
+                                </div>
+                                <div class="con_write_tool">
+                                    <a href="#" class="vote like">
+                                        <span class="likeThumb"><i class="far fa-thumbs-up"></i>
+                                            <strong class="ir_su">좋아요</strong>
+                                        </span>
+                                        <em class="likeUp">34</em>
+                                    </a>
+                                    <a href="#" class="vote unlike">
+                                        <span class="unlikeThumb"><i class="far fa-thumbs-down"></i><strong class="ir_su">싫어요</strong></span>
+                                        <em class="likeDown">5</em>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="comments_content">
+                        <div class="comments_contnet_box">
+                            <div class="con_user">
+                                <span class="con_user_id">amer****</span>
+                            </div>
+                            <div class="con_user_txt">
+                                <span>sample2</span>
+                            </div>
+                            <div class="con_user_info">
+                                <div class="con_write_date"><span>2021-05-26 23:20</span></div>
+                                <div class="con_write_tool">
+                                    <a href="#" class="vote">
+                                        <span><i class="far fa-thumbs-up"></i><strong class="ir_su">좋아요</strong></span>
+                                        <em>1</em>
+                                    </a>
+                                    <a href="#" class="vote unlike">
+                                        <span><i class="far fa-thumbs-down"></i><strong class="ir_su">싫어요</strong></span>
+                                        <em>34</em>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="login_wrap">
+                <div class="login_modal">
+                    <div class="modal_closer_btn">
+                        <a href="#" class="modal_closer">
+                            <span class="modal_closer_top ir_su">closer top</span>
+                            <span class="modal_closer_bottom ir_su">closer bottom</span>
+                        </a>
+                    </div>
+                    <h3 class="login_modal_title">SNS 간편 로그인</h3>
+                    <ul class="sns_login_wrap">
+                        <li class="sns_login_box naver">
+                            <a href="#" class="sns_login">
+                                <span class="login_sns_logo"><img src="img/naver.png" alt="naver"></span>
+                                <span class="login_sns_txt">네이버로 로그인</span>
+                            </a>
+                        </li>
+                        <li class="sns_login_box kakao">
+                            <a href="#" class="sns_login">
+                                <span class="login_sns_logo"><img src="img/kakao.png" alt="kakaotalk"></span>
+                                <span class="login_sns_txt">카카오톡으로 로그인</span>
+                            </a>
+                        </li>
+                        <li class="sns_login_box facebook">
+                            <a href="#" class="sns_login">
+                                <span class="login_sns_logo"><img src="img/facebook.png" alt="facebook"></span>
+                                <span class="login_sns_txt">페이스북으로 로그인</span>
+                            </a>
+                        </li>
+                        <li class="sns_login_box google">
+                            <a href="#" class="sns_login">
+                                <span class="login_sns_logo"><img src="img/google.png" alt="google"></span>
+                                <span class="login_sns_txt">구글로 로그인</span>
+                            </a>
+                        </li>
+                        <li class="sns_login_box twitter">
+                            <a href="#" class="sns_login">
+                                <span class="login_sns_logo"><img src="img/twitter.png" alt="twitter"></span>
+                                <span class="login_sns_txt">트위터로 로그인</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modify_modal">
+                <div class="modify_modal_inner">
+                    <h3 class="modify_modal_title">수정할 내용을 적어주세요.</h3>
+                    <input type="text" class="modify_modal_txt">
+                    <div class="modify_check">
+                        <button class="modify_cancle">취소</button>
+                        <button class="modify_ok">수정</button>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- // comments -->
+    </div>
+</body>
+
+</html>

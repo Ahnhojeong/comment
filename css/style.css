@@ -1,0 +1,315 @@
+@charset "utf-8";
+@import url('./reset.css');
+
+/* layout */
+
+
+
+/* comment_head */
+.comment_head{
+    display: flex;
+}
+.comment_title{
+    font-size:16px;
+    margin:0 10px 10px 0;
+}
+
+
+/* comment_write_box */
+.comment_write_box{}
+.write_box_inner{
+    border : 1px solid #999;
+}
+.wbox_profile{
+    padding : 10px;
+}
+.wbox_profile_name{}
+
+.wbox_write{
+    padding:10px;
+}
+.wbox_write .wbox_text{
+    width:100%;
+    height:50px;
+    border:none;
+    resize: none;
+}
+
+
+.wbox_submit{
+    display:flex;
+    justify-content:flex-end;
+    border-top:0.6px solid #eee;
+}
+.wbox_submit_btn{
+    border:none;
+    width:10%;
+    height:40px;
+    background-color: steelblue;
+    color: white;
+    cursor: pointer;
+}
+.wbox_submit_txt{}
+
+
+/* comments_list */
+.comments_contennt_wrap{}
+.comments_content_list{
+    padding:20px 0 0 0;
+}
+
+.comments_content{
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.comments_contnet_box{
+    padding:15px 10px;
+}
+
+
+.con_user{
+    margin:5px 0;
+}
+.con_user_id{}
+.con_user_id span{}
+
+.modify_wrap{
+    float:right;
+    font-size:12px;
+}
+.modify_wrap::after{
+    content:'';
+    clear:both;
+}
+.modify{
+    color:#999;
+}
+.delete{
+    margin-left:5px;
+    color:#999;
+}
+
+.con_user_txt{
+    padding: 5px 0;
+}
+.con_user_txt span{}
+
+.con_user_info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.con_write_date{}
+.con_write_date span{
+    font-size:12px;
+    color:#999;
+}
+
+.con_write_tool{}
+.vote{
+    min-width : 15px;
+    height:20px;
+    padding: 0 6px;
+    border:1px solid #ededed;
+}
+.unlike{
+    margin-left:5px;
+}
+.vote span{
+    font-size:12px;
+    
+}
+.vote em{
+    font-size:12px;
+    color:#999;
+}
+
+/* login modal */
+.login_wrap{
+    background: rgba(0,0,0,0.6);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    opacity:0;
+    visibility: hidden;
+    transition:1s;
+}
+.login_wrap.open{
+    opacity:1;
+    visibility: visible;
+}
+
+.login_modal{
+    border-radius: 30px;
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    height: calc(50% + 30px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: -100%;
+    opacity: 0;
+    visibility: hidden;
+    transition:1s;
+}
+
+.login_wrap.open .login_modal{
+    bottom:-30px;
+    opacity:1;
+    visibility: visible;
+}
+
+.modal_closer_btn{
+    position:absolute;
+    right:3%;
+    top:3%;
+    width:50px;
+    height:50px;
+}
+
+.modal_closer{
+    width:100%;
+    height:100%;
+    display: inline-block;
+}
+
+.modal_closer span{
+    width:50%;
+    height:1.5px;
+    background:black;
+    position:absolute;
+    top:50%;
+    left: 50%;
+}
+.modal_closer_top{
+    transform: translate(-50%, -50%) rotate(45deg);
+    transform-origin: center;
+}
+.modal_closer_bottom{
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transform-origin: center;
+}
+
+.login_modal_title{
+    font-size:16px;
+    padding-bottom: 20px;
+    text-align: center;
+    color:crimson;
+}
+
+.sns_login_wrap{
+    text-align: center;
+    width:230px;
+}
+.sns_login_box{
+    margin:10px 0;
+    font-size:14px;
+    border-radius: 50px;
+    width:100%;
+}
+.sns_login{
+    padding:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+}
+
+.login_sns_txt{
+    margin-left:10px;
+}
+
+.naver{
+    background-color: #00b336;
+}
+.kakao{
+    background-color: rgba(255,238,51,0.99);
+}
+.kakao .sns_login{
+    color:#000 !important;
+}
+.facebook{
+    background-color: #1877f2;
+}
+.google{
+    background-color:#1a73e8;
+}
+.twitter{
+    background-color:rgb(29, 161, 242);
+}
+
+/* modify modal */
+.modify_modal{
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+    position:fixed;
+    left:0; top:0;
+    opacity: 0;
+    visibility: hidden;
+    transition:0.5s;
+}
+.modify_modal_inner{
+    width:70%; height:30%;
+    background:#fff;
+    position:fixed;
+    left:50%; top:150%;
+    transform:translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition:0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modify_modal.open{
+    opacity:1;
+    visibility: visible;
+}
+.modify_modal.open .modify_modal_inner{
+    top:50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modify_modal_title{
+    padding: 15px 0;
+    font-size:16px;
+}
+.modify_modal_txt{
+    width: 80%;
+    height: 30%;
+    border: 1px solid #999;
+}
+.modify_check{
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modify_check button{
+    border: none;
+    background: steelblue;
+    width: 50px;
+    height: 20px;
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+    font-size:12px;
+}
+
+.modify_ok{
+    margin-left:10px;
+}
+.modify_cancle{
+    margin-right:10px;
+}
