@@ -1,26 +1,32 @@
 window.addEventListener('DOMContentLoaded', function () {
     // login modal popup
-    
+    localStorage.login = 'logout'; // 초기화면
+
     const write = document.querySelector('.comment_write_box');
     const loginModal = document.querySelector('.login_wrap');
     const modalCloser = document.querySelector('.modal_closer_btn');
     
-    
-    write.addEventListener('click',function(){
-        loginModal.classList.add('open');
-    }, {once : true});
+    //console.log(document.querySelector('.wbox_profile_name').innerText == '로그인을 해주세요.');
+
+    write.addEventListener('click',function(e){
+        if(document.querySelector('.wbox_profile_name').innerText == '로그인을 해주세요.' && localStorage.login == 'logout'){
+            loginModal.classList.add('open');
+        }
+    });
     
     modalCloser.addEventListener('click',function(){
         loginModal.classList.remove('open');
-        write.addEventListener('click',function(){
-            loginModal.classList.add('open');
-        })
     });
 
     // sns login
     const snsLogin = document.querySelectorAll('.sns_login_box');
     const userName = document.querySelector('.wbox_profile_name');
     const writeGuide = document.querySelector('.wbox_text');
+
+
+    if(localStorage.login == 'logout'){
+        writeGuide.disabled = true;
+    }
 
     for(var i=0; i<snsLogin.length; i++){
         snsLogin[i].addEventListener('click',function(){
@@ -34,6 +40,8 @@ window.addEventListener('DOMContentLoaded', function () {
         userName.innerHTML = '로그인 완료';
         userName.style.color = '#f00';
         writeGuide.placeholder = '주제와 무관한 댓글이나 악플은 경고조치 없이 삭제되며, 징계의 대상이 될 수 있습니다.';
+        writeGuide.disabled = false;
+        register.disabled = false;
     }
 
     // sns 로그인에 따른 사용자 구분
@@ -232,7 +240,7 @@ window.addEventListener('DOMContentLoaded', function () {
     function submit(){
         const writeVal = writeTextarea.value;
         console.log(writeVal);
-        
+
         if( !writeVal.length ){
             alert("댓글을 입력해주세요");
         }else{
@@ -245,7 +253,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
     
     const register = document.querySelector('.wbox_submit_btn');
+    register.disabled = true;
     register.addEventListener('click',submit);
+
 
     // comment 삭제
     function deleteComment(e){
