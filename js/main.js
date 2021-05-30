@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function () {
     // login modal popup
-    localStorage.login = 'logout';
+    
     const write = document.querySelector('.comment_write_box');
     const loginModal = document.querySelector('.login_wrap');
     const modalCloser = document.querySelector('.modal_closer_btn');
@@ -9,7 +9,6 @@ window.addEventListener('DOMContentLoaded', function () {
     write.addEventListener('click',function(){
         loginModal.classList.add('open');
     }, {once : true});
-    
     
     modalCloser.addEventListener('click',function(){
         loginModal.classList.remove('open');
@@ -246,8 +245,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     
     const register = document.querySelector('.wbox_submit_btn');
-    if(localStorage.login == 'success'){
-        register.addEventListener('click',submit);}
+    register.addEventListener('click',submit);
 
     // comment 삭제
     function deleteComment(e){
