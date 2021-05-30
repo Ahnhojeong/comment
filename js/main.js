@@ -1,14 +1,15 @@
 window.addEventListener('DOMContentLoaded', function () {
-
     // login modal popup
+    localStorage.login = 'logout';
     const write = document.querySelector('.comment_write_box');
     const loginModal = document.querySelector('.login_wrap');
     const modalCloser = document.querySelector('.modal_closer_btn');
-
+    
     
     write.addEventListener('click',function(){
         loginModal.classList.add('open');
     }, {once : true});
+    
     
     modalCloser.addEventListener('click',function(){
         loginModal.classList.remove('open');
@@ -245,7 +246,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
     
     const register = document.querySelector('.wbox_submit_btn');
-    register.addEventListener('click',submit);
+    if(localStorage.login == 'success'){
+        register.addEventListener('click',submit);}
 
     // comment 삭제
     function deleteComment(e){
@@ -303,24 +305,23 @@ window.addEventListener('DOMContentLoaded', function () {
         const modifyCancle = document.querySelector('.modify_cancle');
         
         const modify = e.target;
-        console.log(modify.id);
+        console.log(modify);
         modifyOk.id = "ok";
         modifyCancle.id = "cancle";
         modifyText.id = "modifyVal";
 
-
         modifyModal.classList.add('open');
-
 
         modifyCancle.addEventListener('click',function(){
             modifyModal.classList.remove('open');
         });
 
+
         modifyOk.addEventListener('click',function(e){
             console.log(modify.parentNode.parentNode.parentNode.parentNode.children[1].firstChild); // 댓글내용
             console.log( modify.parentNode.parentNode.parentNode.firstChild ); // 유저 아이디
             console.log(idCountList[0]["commentId"].toString()); // 댓글쓴 아이디 index
-
+            
             for(var i=0; i<idCountList.length; i++){
                 if( idCountList[i]["commentId"].toString() == modify.parentNode.parentNode.parentNode.firstChild.id ){
                     idCountList[i]["commentValue"] = modifyText.value;
@@ -328,12 +329,13 @@ window.addEventListener('DOMContentLoaded', function () {
                     if( badWords.includes(modifyText.value) ){
                         filter(modifyText.value);
                     }else{
-                    modify.parentNode.parentNode.parentNode.parentNode.children[1].firstChild.innerHTML = modifyText.value;
-                    modifyModal.classList.remove('open');
+                        modify.parentNode.parentNode.parentNode.parentNode.children[1].firstChild.innerHTML = modifyText.value;
+                        modifyModal.classList.remove('open');
                     }
                 }
             }
-        })
+        });
+
     }
 
     // id값 초기화 (삭제시)
